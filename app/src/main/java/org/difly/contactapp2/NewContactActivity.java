@@ -1,4 +1,4 @@
-package org.difly.contactapp2.db;
+package org.difly.contactapp2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
