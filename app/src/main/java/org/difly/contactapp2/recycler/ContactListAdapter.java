@@ -27,7 +27,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     private final LayoutInflater mInflater;
     private List<Contact> mContacts;
 
-    ContactListAdapter(Context context) {
+    public ContactListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
     }
 
