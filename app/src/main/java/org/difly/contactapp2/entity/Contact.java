@@ -18,4 +18,46 @@ public class Contact {
     @NonNull
     public String phonenumber;
     public String phonetype;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @NonNull
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(@NonNull String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    @NonNull
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(@NonNull String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public String getPhonetype() {
+        return phonetype;
+    }
+
+    public void setPhonetype(String phonetype) {
+        this.phonetype = phonetype;
+    }
 }
