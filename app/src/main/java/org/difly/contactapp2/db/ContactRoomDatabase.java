@@ -25,11 +25,13 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public static ContactRoomDatabase getDatabase(final Context context) {
+        System.out.println("public static ContactRoomDatabase getDatabase(final Context context)");
         if (INSTANCE == null) {
             synchronized (ContactRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ContactRoomDatabase.class, "contact_database")
+                            .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
             }
@@ -41,8 +43,8 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
+//            super.onCreate(db);
 
-            // comment out the following block if you want to keep data through app restarts
             databaseWriteExecutor.execute(() -> {
                 ContactDao dao = INSTANCE.contactDao();
                 dao.deleteAll();
