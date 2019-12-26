@@ -3,6 +3,7 @@ package org.difly.contactapp2.entity;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "contact_table")
@@ -19,9 +20,19 @@ public class Contact {
     public String phonenumber;
     public String phonetype;
 
+
     public Contact() {
     }
 
+    @Ignore
+    public Contact(Contact contact) {
+        this.firstname = contact.firstname;
+        this.lastname = contact.lastname;
+        this.phonenumber = contact.phonenumber;
+        this.phonetype = contact.phonetype;
+    }
+
+    @Ignore
     public Contact(@NonNull String firstname, String lastname, @NonNull String phonenumber, String phonetype) {
         this.firstname = firstname;
         this.lastname = lastname;

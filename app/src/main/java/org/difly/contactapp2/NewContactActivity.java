@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import org.difly.contactapp2.R;
+import org.difly.contactapp2.entity.Contact;
 
 public class NewContactActivity extends AppCompatActivity {
     public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
@@ -43,8 +44,11 @@ public class NewContactActivity extends AppCompatActivity {
                     String firstname = mEditContactFirstNameView.getText().toString();
                     String lastname = mEditContactFirstNameView.getText().toString();
                     String phonenumber = mEditContactFirstNameView.getText().toString();
-                    String type = "TEST TYPE";
-                    replyIntent.putExtra(EXTRA_REPLY, firstname);
+                    String type = "TEST_TYPE";
+                    replyIntent.putExtra("firstname", firstname);
+                    replyIntent.putExtra("lastname", lastname);
+                    replyIntent.putExtra("phonenumber", phonenumber);
+                    replyIntent.putExtra("type", type);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();

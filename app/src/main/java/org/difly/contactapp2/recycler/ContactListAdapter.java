@@ -47,7 +47,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         }
     }
 
-    void setContacts(List<Contact> contacts){
+    public void setContacts(List<Contact> contacts){
         mContacts = contacts;
         notifyDataSetChanged();
     }
