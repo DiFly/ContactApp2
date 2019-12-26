@@ -19,6 +19,16 @@ public class Contact {
     public String phonenumber;
     public String phonetype;
 
+    public Contact() {
+    }
+
+    public Contact(@NonNull String firstname, String lastname, @NonNull String phonenumber, String phonetype) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phonenumber = phonenumber;
+        this.phonetype = phonetype;
+    }
+
     public long getId() {
         return id;
     }

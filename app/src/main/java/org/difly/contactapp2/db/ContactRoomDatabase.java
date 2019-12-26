@@ -2,9 +2,11 @@ package org.difly.contactapp2.db;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.difly.contactapp2.dao.ContactDao;
 import org.difly.contactapp2.entity.Contact;
@@ -34,4 +36,21 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
+
+    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
+
+            // comment out the following block if you want to keep data through app restarts
+            databaseWriteExecutor.execute(() -> {
+                ContactDao dao = INSTANCE.contactDao();
+                dao.deleteAll();
+                Contact contact = new Contact("Vasya", "Vase4kin", "+30123456789", "Home");
+                dao.insert(contact);
+                contact = new Contact("World", "Earth", "123456789", "WORK");
+                dao.insert(contact);
+            });
+        }
+    };
 }
