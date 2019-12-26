@@ -1,4 +1,4 @@
-package org.difly.contactapp2.model;
+package org.difly.contactapp2.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

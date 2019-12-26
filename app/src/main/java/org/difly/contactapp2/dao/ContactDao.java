@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import org.difly.contactapp2.model.Contact;
+import org.difly.contactapp2.entity.Contact;
 
 import java.util.List;
 
