@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.difly.contactapp2.R;
 import org.difly.contactapp2.entity.Contact;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
@@ -18,7 +19,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
     private final LayoutInflater mInflater;
     private final OnContactClickListener mListener;
-    private List<Contact> mContacts;
+    private List<Contact> mContacts  = new ArrayList<>();
 
     public ContactListAdapter(Context context, OnContactClickListener contactClickListener) {
         mInflater = LayoutInflater.from(context);
@@ -33,16 +34,14 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
     @Override
     public void onBindViewHolder(ContactViewHolder holder, int position) {
-        if (mContacts != null) {
-            Contact current = mContacts.get(position);
-            holder.contactItemView.setText(current.getFirstname() + " " + current.getLastname());
-        } else {
-            holder.contactItemView.setText("No Contact");
-        }
+        Contact current = mContacts.get(position);
+        holder.contactItemView.setText(current.getFirstname() + " " + current.getLastname());
+
     }
 
     public void setContacts(List<Contact> contacts){
-        mContacts = contacts;
+        mContacts.clear();
+        mContacts.addAll(contacts);
         notifyDataSetChanged();
     }
 
