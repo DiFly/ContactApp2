@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final ContactListAdapter adapter = new ContactListAdapter(new OnContactClickListener() {
+        final ContactListAdapter adapter = new ContactListAdapter(this, new OnContactClickListener() {
             @Override
             public void onContactClick(Contact contact) {
                 handleRecyclerItemClick(contact);

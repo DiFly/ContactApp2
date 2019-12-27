@@ -15,20 +15,14 @@ import java.util.List;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
 
-    class ContactViewHolder extends RecyclerView.ViewHolder {
-        private final TextView contactItemView;
-
-        private ContactViewHolder(View itemView) {
-            super(itemView);
-            contactItemView = itemView.findViewById(R.id.textView);
-        }
-    }
 
     private final LayoutInflater mInflater;
+    private final OnContactClickListener mListener;
     private List<Contact> mContacts;
 
-    public ContactListAdapter(Context context) {
+    public ContactListAdapter(Context context, OnContactClickListener contactClickListener) {
         mInflater = LayoutInflater.from(context);
+        mListener = contactClickListener;
     }
 
     @Override
@@ -57,5 +51,13 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         if (mContacts != null)
             return mContacts.size();
         else return 0;
+    }
+    static class ContactViewHolder extends RecyclerView.ViewHolder {
+        private final TextView contactItemView;
+
+        private ContactViewHolder(View itemView) {
+            super(itemView);
+            contactItemView = itemView.findViewById(R.id.textView);
+        }
     }
 }
