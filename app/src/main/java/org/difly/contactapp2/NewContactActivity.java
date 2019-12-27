@@ -43,8 +43,8 @@ public class NewContactActivity extends AppCompatActivity {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
                     String firstname = mEditContactFirstNameView.getText().toString();
-                    String lastname = mEditContactFirstNameView.getText().toString();
-                    String phonenumber = mEditContactFirstNameView.getText().toString();
+                    String lastname = mEditContactLastNameView.getText().toString();
+                    String phonenumber = mEditContactPhoneNumberView.getText().toString();
                     String type = "Home";
 
                     switch (mRadioGroupSelectTypeView.getCheckedRadioButtonId()) {
