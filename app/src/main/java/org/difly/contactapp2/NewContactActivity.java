@@ -30,6 +30,8 @@ public class NewContactActivity extends AppCompatActivity {
         mEditContactPhoneNumberView = findViewById(R.id.edit_phonenumber);
         mRadioGroupSelectTypeView = findViewById(R.id.radioGroup_type);
 
+        mRadioGroupSelectTypeView.check(R.id.radioButton_home);
+
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -40,11 +42,20 @@ public class NewContactActivity extends AppCompatActivity {
                 ) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
-                    //ToDo
                     String firstname = mEditContactFirstNameView.getText().toString();
                     String lastname = mEditContactFirstNameView.getText().toString();
                     String phonenumber = mEditContactFirstNameView.getText().toString();
-                    String type = "TEST_TYPE";
+                    String type = "Home";
+
+                    switch (mRadioGroupSelectTypeView.getCheckedRadioButtonId()) {
+                        case R.id.radioButton_home:
+                            type = "Home";
+                            break;
+                        case R.id.radioButton_work:
+                            type = "Work";
+                            break;
+                    }
+
                     replyIntent.putExtra("firstname", firstname);
                     replyIntent.putExtra("lastname", lastname);
                     replyIntent.putExtra("phonenumber", phonenumber);
