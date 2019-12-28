@@ -56,6 +56,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             return mContacts.size();
         else return 0;
     }
+
     static class ContactViewHolder extends RecyclerView.ViewHolder {
         private final TextView contactItemView;
 

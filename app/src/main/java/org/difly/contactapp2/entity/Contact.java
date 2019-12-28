@@ -6,8 +6,10 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "contact_table")
-public class Contact {
+public class Contact implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public long id;
 

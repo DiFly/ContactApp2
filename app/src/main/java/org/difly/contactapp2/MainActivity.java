@@ -1,17 +1,16 @@
 package org.difly.contactapp2;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.ClipData;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -21,6 +20,8 @@ import org.difly.contactapp2.recycler.OnContactClickListener;
 import org.difly.contactapp2.viewmodel.ContactViewModel;
 
 import java.util.List;
+
+import static org.difly.contactapp2.ContactDetailsActivity.CONTACT_KEY;
 
 public class MainActivity extends AppCompatActivity {
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
@@ -62,19 +63,27 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleRecyclerItemClick(Contact contact) {
         Toast.makeText(this, "Clicked on " + contact.getFirstname(), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, ContactDetailsActivity.class);
+        intent.putExtra(CONTACT_KEY, contact);
+        startActivity(intent);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Contact contact = new Contact(
-                    data.getStringExtra("firstname"),
-                    data.getStringExtra("lastname"),
-                    data.getStringExtra("phonenumber"),
-                    data.getStringExtra("type")
-            );
-            mContactViewModel.insert(contact);
+//            Contact contact = new Contact(
+//                    data.getStringExtra("firstname"),
+//                    data.getStringExtra("lastname"),
+//                    data.getStringExtra("phonenumber"),
+//                    data.getStringExtra("type")
+//            );
+//            mContactViewModel.insert(contact);
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_saved,
+                    Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(
                     getApplicationContext(),

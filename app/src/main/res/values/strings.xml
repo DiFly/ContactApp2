@@ -5,4 +5,5 @@
     <string name="hint_contactphonenumber">Phone number...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Contact not saved because first name or phone number is empty.</string>
+    <string name="empty_saved">Contact saved.</string>
 </resources>

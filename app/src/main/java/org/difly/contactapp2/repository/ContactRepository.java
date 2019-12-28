@@ -29,4 +29,16 @@ public class ContactRepository {
             mContactDao.insert(contact);
         });
     }
+
+    public void update(Contact contact) {
+        ContactRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mContactDao.update(contact);
+        });
+    }
+
+    public void delete(Contact contact) {
+        ContactRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mContactDao.delete(contact);
+        });
+    }
 }
