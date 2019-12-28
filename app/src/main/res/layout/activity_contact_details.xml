@@ -6,4 +6,133 @@
     android:layout_height="match_parent"
     tools:context=".ContactDetailsActivity">
 
+    <TextView
+        android:id="@+id/text_firstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/small_padding"
+        android:text="@string/string_firstname"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_firstname_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/small_padding"
+        android:text="@string/string_firstname_value_no"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_firstname" />
+
+    <TextView
+        android:id="@+id/text_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/small_padding"
+        android:text="@string/string_lastname"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_firstname_value" />
+
+    <TextView
+        android:id="@+id/text_lastname_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/small_padding"
+        android:text="@string/string_lastname_value_no"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_lastname" />
+
+    <TextView
+        android:id="@+id/text_phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/small_padding"
+        android:text="@string/string_phonenumber"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_lastname_value" />
+
+    <TextView
+        android:id="@+id/text_phonenumber_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/small_padding"
+        android:text="@string/string_phonenumber_value_no"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_phonenumber" />
+
+    <TextView
+        android:id="@+id/text_phonetype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/small_padding"
+        android:text="@string/string_phonetype"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_phonenumber_value" />
+
+    <TextView
+        android:id="@+id/text_phonetype_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/small_padding"
+        android:text="@string/string_phonetype_value_no"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_phonetype" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEdit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_mode_edit_grey_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

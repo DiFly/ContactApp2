@@ -69,8 +69,6 @@ public class NewContactActivity extends AppCompatActivity {
     }
 
     private void handleItemClick() {
-
-
         Intent replyIntent = new Intent();
         if (
                 TextUtils.isEmpty(mEditContactFirstNameView.getText()) ||

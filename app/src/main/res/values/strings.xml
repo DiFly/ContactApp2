@@ -6,4 +6,13 @@
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Contact not saved because first name or phone number is empty.</string>
     <string name="empty_saved">Contact saved.</string>
+    <string name="click_edit">Click edit </string>
+    <string name="string_firstname">First Name</string>
+    <string name="string_lastname">Last Name</string>
+    <string name="string_phonenumber">Phone Number</string>
+    <string name="string_phonetype">Phone Type</string>
+    <string name="string_firstname_value_no">No First Name</string>
+    <string name="string_lastname_value_no">No Last Name</string>
+    <string name="string_phonenumber_value_no">No Phone Number</string>
+    <string name="string_phonetype_value_no">No Phone Type</string>
 </resources>
