@@ -11,8 +11,8 @@ import org.difly.contactapp2.entity.Contact;
 import java.util.List;
 
 public class ContactRepository {
-    private ContactDao mContactDao;
-    private LiveData<List<Contact>> mAllContacts;
+    private final ContactDao mContactDao;
+    private final LiveData<List<Contact>> mAllContacts;
 
     public ContactRepository(Application application) {
         ContactRoomDatabase db = ContactRoomDatabase.getDatabase(application);

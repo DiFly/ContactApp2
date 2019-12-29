@@ -26,7 +26,7 @@ public class NewContactActivity extends AppCompatActivity {
     private ContactViewModel mContactViewModel;
     private boolean editMode= false;
 
-    Contact contact;
+    private Contact contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,20 +59,19 @@ public class NewContactActivity extends AppCompatActivity {
         }
 
         final Button button = findViewById(R.id.button_save);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                handleItemClick();
-            }
-        });
+        button.setOnClickListener(view -> handleItemClick());
     }
 
     private void handleItemClick() {
         Intent replyIntent = new Intent();
-        if (
-                TextUtils.isEmpty(mEditContactFirstNameView.getText()) ||
-                TextUtils.isEmpty(mEditContactPhoneNumberView.getText())
-        ) {
-            setResult(RESULT_CANCELED, replyIntent);
+
+        boolean isFirstNameEmpty = TextUtils.isEmpty(mEditContactFirstNameView.getText());
+        boolean isPhoneEmpty = TextUtils.isEmpty(mEditContactPhoneNumberView.getText());
+
+        if (isFirstNameEmpty) {
+            mEditContactFirstNameView.setError("Should not be empty");
+        } else if (isPhoneEmpty) {
+            mEditContactPhoneNumberView.setError("Should not be empty");
         } else {
             String firstname = mEditContactFirstNameView.getText().toString();
             String lastname = mEditContactLastNameView.getText().toString();

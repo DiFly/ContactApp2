@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
-
-
     private final LayoutInflater mInflater;
     private final OnContactClickListener mListener;
     private List<Contact> mContacts  = new ArrayList<>();

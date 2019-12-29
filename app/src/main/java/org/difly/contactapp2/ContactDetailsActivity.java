@@ -17,7 +17,6 @@ import org.difly.contactapp2.viewmodel.ContactViewModel;
 
 public class ContactDetailsActivity extends AppCompatActivity {
     public static final String CONTACT_KEY = "contact";
-
     private Contact mContact;
 
     @Override
@@ -33,23 +32,15 @@ public class ContactDetailsActivity extends AppCompatActivity {
         TextView textViewValueOfPhoneNumber = findViewById(R.id.text_phonenumber_value);
         TextView textViewValueOfPhoneType = findViewById(R.id.text_phonetype_value);
 
-        contactViewModel.getContactById(mContact.getId()).observe(this, new Observer<Contact>() {
-            @Override
-            public void onChanged(Contact contact) {
-                textViewValueOfFirstName.setText(contact.getFirstname());
-                textViewValueOfLastName.setText(contact.getLastname());
-                textViewValueOfPhoneNumber.setText(contact.getPhonenumber());
-                textViewValueOfPhoneType.setText(contact.getPhonetype());
-            }
+        contactViewModel.getContactById(mContact.getId()).observe(this, contact -> {
+            textViewValueOfFirstName.setText(contact.getFirstname());
+            textViewValueOfLastName.setText(contact.getLastname());
+            textViewValueOfPhoneNumber.setText(contact.getPhonenumber());
+            textViewValueOfPhoneType.setText(contact.getPhonetype());
         });
 
         FloatingActionButton fab = findViewById(R.id.fabEdit);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                handleEditItemClick();
-            }
-        });
+        fab.setOnClickListener(view -> handleEditItemClick());
     }
 
     private void handleEditItemClick() {
