@@ -1,17 +1,15 @@
 package org.difly.contactapp2;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
-import org.difly.contactapp2.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
 import org.difly.contactapp2.entity.Contact;
 import org.difly.contactapp2.viewmodel.ContactViewModel;
 
@@ -24,7 +22,7 @@ public class NewContactActivity extends AppCompatActivity {
     private RadioGroup mRadioGroupSelectTypeView;
 
     private ContactViewModel mContactViewModel;
-    private boolean editMode= false;
+    private boolean editMode = false;
 
     private Contact contact;
 

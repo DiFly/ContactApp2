@@ -43,7 +43,6 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-//            super.onCreate(db);
 
             databaseWriteExecutor.execute(() -> {
                 ContactDao dao = INSTANCE.contactDao();

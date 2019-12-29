@@ -2,12 +2,9 @@ package org.difly.contactapp2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,10 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.difly.contactapp2.entity.Contact;
 import org.difly.contactapp2.recycler.ContactListAdapter;
-import org.difly.contactapp2.recycler.OnContactClickListener;
 import org.difly.contactapp2.viewmodel.ContactViewModel;
-
-import java.util.List;
 
 import static org.difly.contactapp2.ContactDetailsActivity.CONTACT_KEY;
 
@@ -33,31 +27,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final ContactListAdapter adapter = new ContactListAdapter(this, new OnContactClickListener() {
-            @Override
-            public void onContactClick(Contact contact) {
-                handleRecyclerItemClick(contact);
-            }
-        });
+        final ContactListAdapter adapter = new ContactListAdapter(this, contact -> handleRecyclerItemClick(contact));
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mContactViewModel = new ViewModelProvider(this).get(ContactViewModel.class);
-        mContactViewModel.getAllContacts().observe(this, new Observer<List<Contact>>() {
-            @Override
-            public void onChanged(@Nullable final List<Contact> contacts) {
-                adapter.setContacts(contacts);
-            }
-        });
+        mContactViewModel.getAllContacts().observe(this, contacts -> adapter.setContacts(contacts));
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NewContactActivity.class);
-                startActivityForResult(intent, NEW_CONTACT_ACTIVITY_REQUEST_CODE);
-            }
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, NewContactActivity.class);
+            startActivityForResult(intent, NEW_CONTACT_ACTIVITY_REQUEST_CODE);
         });
     }
 

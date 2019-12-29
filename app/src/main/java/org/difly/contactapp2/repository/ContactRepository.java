@@ -25,21 +25,15 @@ public class ContactRepository {
     }
 
     public void insert(Contact contact) {
-        ContactRoomDatabase.databaseWriteExecutor.execute(() -> {
-            mContactDao.insert(contact);
-        });
+        ContactRoomDatabase.databaseWriteExecutor.execute(() -> mContactDao.insert(contact));
     }
 
     public void update(Contact contact) {
-        ContactRoomDatabase.databaseWriteExecutor.execute(() -> {
-            mContactDao.update(contact);
-        });
+        ContactRoomDatabase.databaseWriteExecutor.execute(() -> mContactDao.update(contact));
     }
 
     public void delete(Contact contact) {
-        ContactRoomDatabase.databaseWriteExecutor.execute(() -> {
-            mContactDao.delete(contact);
-        });
+        ContactRoomDatabase.databaseWriteExecutor.execute(() -> mContactDao.delete(contact));
     }
 
     public LiveData<Contact> getById(long id){
