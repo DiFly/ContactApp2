@@ -49,7 +49,7 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
                 dao.deleteAll();
                 Contact contact = new Contact("Vasya", "Vase4kin", "+30123456789", "Home");
                 dao.insert(contact);
-                contact = new Contact("World", "Earth", "123456789", "WORK");
+                contact = new Contact("World", "Earth", "123456789", "Work");
                 dao.insert(contact);
             });
         }
