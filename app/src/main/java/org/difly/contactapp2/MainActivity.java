@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleRecyclerItemClick(Contact contact) {
-        Toast.makeText(this, "Clicked on " + contact.getFirstname(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Clicked on " + contact.getFirstname(), Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(this, ContactDetailsActivity.class);
         intent.putExtra(CONTACT_KEY, contact);
@@ -73,13 +73,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-//            Contact contact = new Contact(
-//                    data.getStringExtra("firstname"),
-//                    data.getStringExtra("lastname"),
-//                    data.getStringExtra("phonenumber"),
-//                    data.getStringExtra("type")
-//            );
-//            mContactViewModel.insert(contact);
             Toast.makeText(
                     getApplicationContext(),
                     R.string.empty_saved,

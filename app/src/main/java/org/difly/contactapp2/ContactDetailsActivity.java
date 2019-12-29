@@ -47,7 +47,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
     }
 
     private void handleEditItemClick(Contact contact) {
-        Toast.makeText(this, R.string.click_edit + contact.getFirstname(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), R.string.click_edit, Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(this, NewContactActivity.class);
         intent.putExtra(CONTACT_KEY, contact);

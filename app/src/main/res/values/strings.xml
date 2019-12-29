@@ -15,4 +15,5 @@
     <string name="string_lastname_value_no">No Last Name</string>
     <string name="string_phonenumber_value_no">No Phone Number</string>
     <string name="string_phonetype_value_no">No Phone Type</string>
+    <string name="string_contactdetails">Details:</string>
 </resources>

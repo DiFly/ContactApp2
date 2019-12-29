@@ -104,10 +104,6 @@ public class NewContactActivity extends AppCompatActivity {
             } else {
                 mContactViewModel.insert(contact);
             }
-//            replyIntent.putExtra("firstname", firstname);
-//            replyIntent.putExtra("lastname", lastname);
-//            replyIntent.putExtra("phonenumber", phonenumber);
-//            replyIntent.putExtra("type", type);
             setResult(RESULT_OK, replyIntent);
         }
         finish();
