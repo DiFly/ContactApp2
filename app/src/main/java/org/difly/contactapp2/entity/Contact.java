@@ -11,17 +11,16 @@ import java.io.Serializable;
 @Entity(tableName = "contact_table")
 public class Contact implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    public long id;
+    private long id;
 
     @NonNull
     @ColumnInfo(name = "firstname")
-    public String firstname;
-    public String lastname;
+    private String firstname;
+    private String lastname;
 
     @NonNull
-    public String phonenumber;
-    public String phonetype;
-
+    private String phonenumber;
+    private String phonetype;
 
     public Contact() {
     }
