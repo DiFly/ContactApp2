@@ -18,8 +18,6 @@ import org.difly.contactapp2.viewmodel.ContactViewModel;
 import static org.difly.contactapp2.ContactDetailsActivity.CONTACT_KEY;
 
 public class NewContactActivity extends AppCompatActivity {
-    public static final String EXTRA_REPLY = "org.difly.contactapp2.REPLY";
-
     private EditText mEditContactFirstNameView;
     private EditText mEditContactLastNameView;
     private EditText mEditContactPhoneNumberView;
@@ -50,7 +48,7 @@ public class NewContactActivity extends AppCompatActivity {
             mEditContactLastNameView.setText(contact.getLastname());
             mEditContactPhoneNumberView.setText(contact.getPhonenumber());
 
-            switch (contact.phonetype) {
+            switch (contact.getPhonetype()) {
                 case "Home":
                     mRadioGroupSelectTypeView.check(R.id.radioButton_home);
                     break;

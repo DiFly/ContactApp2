@@ -20,7 +20,7 @@ public interface ContactDao {
     LiveData<List<Contact>> getAlphabetizedContacts();
 
     @Query("SELECT * FROM contact_table WHERE id = :id")
-    Contact getById(long id);
+    LiveData<Contact> getById(long id);
 
     @Insert
     void insert(Contact contact);

@@ -1,6 +1,8 @@
 package org.difly.contactapp2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,46 +13,50 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.difly.contactapp2.entity.Contact;
+import org.difly.contactapp2.viewmodel.ContactViewModel;
 
 public class ContactDetailsActivity extends AppCompatActivity {
     public static final String CONTACT_KEY = "contact";
 
-    TextView textViewValueOfFirstName;
-    TextView textViewValueOfLastName;
-    TextView textViewValueOfPhoneNumber;
-    TextView textViewValueOfPhoneType;
+    private Contact mContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_details);
 
-        textViewValueOfFirstName = findViewById(R.id.text_firstname_value);
-        textViewValueOfLastName = findViewById(R.id.text_lastname_value);
-        textViewValueOfPhoneNumber = findViewById(R.id.text_phonenumber_value);
-        textViewValueOfPhoneType = findViewById(R.id.text_phonetype_value);
+        mContact = (Contact) getIntent().getSerializableExtra(CONTACT_KEY);
+        ContactViewModel contactViewModel = new ViewModelProvider(this).get(ContactViewModel.class);
 
-        Contact contact = (Contact) getIntent().getSerializableExtra(CONTACT_KEY);
+        TextView textViewValueOfFirstName = findViewById(R.id.text_firstname_value);
+        TextView textViewValueOfLastName = findViewById(R.id.text_lastname_value);
+        TextView textViewValueOfPhoneNumber = findViewById(R.id.text_phonenumber_value);
+        TextView textViewValueOfPhoneType = findViewById(R.id.text_phonetype_value);
 
-        textViewValueOfFirstName.setText(contact.getFirstname());
-        textViewValueOfLastName.setText(contact.getLastname());
-        textViewValueOfPhoneNumber.setText(contact.getPhonenumber());
-        textViewValueOfPhoneType.setText(contact.getPhonetype());
+        contactViewModel.getContactById(mContact.getId()).observe(this, new Observer<Contact>() {
+            @Override
+            public void onChanged(Contact contact) {
+                textViewValueOfFirstName.setText(contact.getFirstname());
+                textViewValueOfLastName.setText(contact.getLastname());
+                textViewValueOfPhoneNumber.setText(contact.getPhonenumber());
+                textViewValueOfPhoneType.setText(contact.getPhonetype());
+            }
+        });
 
         FloatingActionButton fab = findViewById(R.id.fabEdit);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handleEditItemClick(contact);
+                handleEditItemClick();
             }
         });
     }
 
-    private void handleEditItemClick(Contact contact) {
+    private void handleEditItemClick() {
         Toast.makeText(getApplicationContext(), R.string.click_edit, Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(this, NewContactActivity.class);
-        intent.putExtra(CONTACT_KEY, contact);
+        intent.putExtra(CONTACT_KEY, mContact);
         startActivity(intent);
     }
 }

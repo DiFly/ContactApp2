@@ -41,4 +41,8 @@ public class ContactRepository {
             mContactDao.delete(contact);
         });
     }
+
+    public LiveData<Contact> getById(long id){
+        return mContactDao.getById(id);
+    }
 }

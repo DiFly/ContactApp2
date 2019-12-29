@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.difly.contactapp2.R;
@@ -26,6 +27,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         mListener = contactClickListener;
     }
 
+    @NonNull
     @Override
     public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
