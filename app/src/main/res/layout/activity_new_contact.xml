@@ -65,8 +65,9 @@
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/lightDarkBlue"
         android:text="@string/button_save"
+        android:textSize="@dimen/big_size"
         android:textColor="@color/buttonLabel" />
 
 </LinearLayout>
